@@ -1,5 +1,8 @@
 
-public class Observer {
-	public void update(String notification) {};
+
+public interface Observer {
+	 void update(String notification);
+
+	
 	
 }

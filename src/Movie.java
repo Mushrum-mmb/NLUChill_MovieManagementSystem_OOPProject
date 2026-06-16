@@ -1,4 +1,7 @@
-public class Movie{
+import java.util.ArrayList;
+import java.util.List;
+
+public class Movie implements Subject{
 //	thuoc tinh movie
 	private int id;
 	private String nameMovie;
@@ -8,7 +11,8 @@ public class Movie{
 	private String country;
 	private String link;
 	private boolean isVip;
-//	constructor movie
+	//Tao danhsach chua cac	member
+	private List<Observer> ob = new ArrayList<>();
 	public Movie(int id, String nameMovie, String director, String actor, Category category, String country,
 			String link, boolean isVip) {
 		super();
@@ -20,8 +24,33 @@ public class Movie{
 		this.country = country;
 		this.link = link;
 		this.isVip = isVip;
+		ob = new ArrayList<>();
+		
 	}
-//	getter setter
+	@Override
+	public void resister(Observer o) {
+		// TODO Auto-generated method stub
+		ob.add(o);
+		System.out.println("Bạn đã đăng kí nhận thông báo thành công");
+	}
+	@Override
+	public void unResister(Observer o) {
+		// TODO Auto-generated method stub
+		ob.remove(o);
+		System.out.println("Bạn đã hủy đăng kí nhận thông báo thành công");
+		
+	}
+	@Override
+	public void notify(Observer o) {
+		// TODO Auto-generated method stub
+			for(Observer o1: ob) {
+				o.update("Phim mới;"+ nameMovie);
+			}
+		}
+				
+
+
+	//	getter setter
 	public int getId() {
 		return id;
 	}
@@ -71,7 +100,24 @@ public class Movie{
 		this.isVip = isVip;
 	}
 //	phuong thuc khac
-	public void getDetails() {};
-	public void watchMovie() {}
+	public void getDetails() {
+		System.out.println("Tên phim: " + nameMovie);
+	    System.out.println("Diễn viên: " + actor);
+	    System.out.println("Quốc gia: " + country);
+	    System.out.println("Thể loại: " + category.getCategory());
+		}
+	}
+	public void watchMovie() {
+		boolean isVip;
+		if(isVip) {
+			System.out.println("Đang xem phim VIP...");
+			
+		}else {
+			System.out.println("Đang xem phim miễn phí...");
+		}
+		
+	}
+	
 
-}
+
+	
