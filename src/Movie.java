@@ -1,4 +1,4 @@
-public class Movie implements Subject{
+public class Movie{
 //	thuoc tinh movie
 	private int id;
 	private String nameMovie;
@@ -73,20 +73,5 @@ public class Movie implements Subject{
 //	phuong thuc khac
 	public void getDetails() {};
 	public void watchMovie() {}
-	@Override
-	public void resister(Observer o) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void unResister(Observer o) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void notify(Observer o) {
-		// TODO Auto-generated method stub
-		
-	};
-	
+
 }
