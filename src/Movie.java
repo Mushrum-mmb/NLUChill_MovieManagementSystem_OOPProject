@@ -1,5 +1,5 @@
 public class Movie implements Subject{
-//	thuoc tinh movie 
+//	thuoc tinh movie
 	private int id;
 	private String nameMovie;
 	private String director;
