@@ -21,6 +21,7 @@ public class Movie {
 		this.country = country;
 		this.link = link;
 		this.isVip = isVip;
+		
 	}
 	
 }
