@@ -12,7 +12,7 @@ public class Movie implements Subject{
 	private String link;
 	private boolean isVip;
 	//Tao danhsach chua cac	member
-	private List<Observer> ob = new ArrayList<>();
+	private List<Observer> ob;
 	public Movie(int id, String nameMovie, String director, String actor, Category category, String country,
 			String link, boolean isVip) {
 		super();
@@ -41,16 +41,14 @@ public class Movie implements Subject{
 		
 	}
 	@Override
-	public void notify(Observer o) {
+	public void notify(String nameMovie) {
 		// TODO Auto-generated method stub
-			for(Observer o1: ob) {
+			for(Observer o: ob) {
 				o.update("Phim mới;"+ nameMovie);
 			}
 		}
 				
-
-
-	//	getter setter
+	//	getters setters
 	public int getId() {
 		return id;
 	}
@@ -106,9 +104,8 @@ public class Movie implements Subject{
 	    System.out.println("Quốc gia: " + country);
 	    System.out.println("Thể loại: " + category.getCategory());
 		}
-	}
 	public void watchMovie() {
-		boolean isVip;
+		boolean isVip = false;
 		if(isVip) {
 			System.out.println("Đang xem phim VIP...");
 			
@@ -117,7 +114,7 @@ public class Movie implements Subject{
 		}
 		
 	}
-	
+}
 
 
 	
