@@ -1,6 +1,4 @@
-package Controller;
 
-import Model.Member;
 import java.util.List;
 
 public class LoginController{

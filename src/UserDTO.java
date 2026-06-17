@@ -1,4 +1,4 @@
-package Controller;
+
 
 public class UserDTO {
 	String name;

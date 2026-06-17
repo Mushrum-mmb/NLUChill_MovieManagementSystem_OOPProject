@@ -1,4 +1,4 @@
-package Controller;
+
 
 public class LoginDTO {
 	String email;

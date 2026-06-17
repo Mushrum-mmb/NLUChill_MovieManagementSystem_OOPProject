@@ -1,11 +1,3 @@
-package View;
-
-import Controller.LoginController;
-
-import Model.Member;
-import Model.Movie;
-import Model.User;
-import Model.Category;
 
 import javax.swing.*;
 import javax.swing.border.*;
@@ -810,7 +802,7 @@ public class LoginView extends JPanel {
             save.addActionListener(e->{
                 if(nF.getText().trim().isEmpty()){err.setText("Tên phim không được trống."); return;}
                 target.setNameMovie(nF.getText().trim()); target.setDirector(dirF.getText().trim()); target.setActor(actF.getText().trim());
-                target.setCountry(cntF.getText().trim()); target.setCategory(new Category(target.getCategory()!=null?target.getCategory().getId():0,catF.getText().trim()));
+                target.setCountry(cntF.getText().trim()); target.setCategory(new Category(catF.getText().trim(),target.getCategory()!=null?target.getCategory().getId():0));
                 target.setLink(lnkF.getText().trim()); target.setVip(vip.isSelected());
                 if(listener!=null) listener.onUpdateMovie(target); d.dispose();
             });

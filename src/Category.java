@@ -9,7 +9,8 @@ public class Category {
 		this.category = category;
 		this.id = id;
 	}
-//	getter setter
+
+	//	getter setter
 	public String getCategory() {
 		return category;
 	}
