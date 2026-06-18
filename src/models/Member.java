@@ -3,21 +3,13 @@ import java.sql.Date;
 
 public class Member extends User implements Observer{
 //	thuoc tinh member
-	private String AccountStatus;
 	private Date expiredVIP;
 	//	constructor member
-	public Member(int id, String email, String password, String accountStatus, Date expiredVIP) {
-		super(id, email, password);
-		AccountStatus = accountStatus;
+	public Member(int id, String email, String password, String status, Date expiredVIP) {
+		super(id, email, password,status);
 		this.expiredVIP = expiredVIP;
 	}
 //	getters setters
-	public String getAccountStatus() {
-		return AccountStatus;
-	}
-	public void setAccountStatus(String accountStatus) {
-		AccountStatus = accountStatus;
-	}
 	public Date getExpiredVIP() {
 		return expiredVIP;
 	}

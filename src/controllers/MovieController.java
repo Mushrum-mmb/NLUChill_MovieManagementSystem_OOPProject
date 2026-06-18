@@ -37,7 +37,7 @@ public class MovieController {
         	System.out.println("Movie not found: " + movieId); 
         	return false; 
         	}
-        if (movie.isVip() && !"VIP".equalsIgnoreCase(user.getAccountStatus())) {
+        if (movie.isVip() && !"VIP".equalsIgnoreCase(user.getStatus())) {
             System.out.println("VIP required for: " + movie.getNameMovie());
             return false;
         }
