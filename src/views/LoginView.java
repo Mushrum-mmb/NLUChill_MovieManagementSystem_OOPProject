@@ -241,7 +241,7 @@ public class LoginView extends JPanel {
         JButton btn = new JButton(text) {
             @Override protected void paintComponent(Graphics g) {
                 Graphics2D g2 = (Graphics2D) g.create();
-//                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
                 Color c = Theme.ACCENT;
                 g2.setColor(c); 
                 g2.fillRoundRect(0,0,getWidth(),getHeight(),12,12);
@@ -250,7 +250,7 @@ public class LoginView extends JPanel {
             }
         };
         btn.setFont(Theme.fontBold(14)); 
-        btn.setForeground(Color.WHITE);
+        btn.setForeground(Color.BLACK);
         btn.setContentAreaFilled(false); 
         btn.setBorderPainted(false);
         btn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
