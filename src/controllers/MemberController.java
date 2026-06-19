@@ -11,6 +11,7 @@ import views.MemberView;
 import views.Theme;
 
 public class MemberController {
+	// Cập nhật hồ sơ người dùng
 	public static void handleUpdateProfile(MemberView view, Member currentMember, String newName, String newEmail) {
 	    if (newName.isEmpty() && newEmail.isEmpty()) {
 	        view.setProfileMsg("Vui lòng nhập ít nhất một thông tin cần thay đổi.", Theme.WARNING);
@@ -20,12 +21,11 @@ public class MemberController {
 	        view.setProfileMsg("Email không hợp lệ.", Theme.ERROR); 
 	        return;
 	    }
-	    // Cập nhật model
 	    if (!newEmail.isEmpty()) {
 	        currentMember.setEmail(newEmail);
 	    }
 	
-	    // Gọi UI cập nhật
+	    // 
 	    view.refreshDisplay();
 	    view.clearProfileEditFields();
 	
@@ -35,7 +35,7 @@ public class MemberController {
 	
 	    view.setProfileMsg("Cập nhật thông tin thành công!", Theme.SUCCESS);
 	}
-	
+	// Đổi mật khẩu người dùng
 	public static void handleChangePassword(MemberView view, Member currentMember, String oldPass, String newPass, String confirm) {
 	    if (oldPass.isEmpty() || newPass.isEmpty() || confirm.isEmpty()) {
 	        view.setPassMsg("Vui lòng điền đầy đủ tất cả các ô.", Theme.WARNING); 
@@ -63,7 +63,7 @@ public class MemberController {
 	
 	    view.setPassMsg("Đổi mật khẩu thành công!", Theme.SUCCESS);
 	}
-	
+	// Xóa tài khoản người dùng
 	public static void handleDeleteAccount(MemberView view, Member currentMember) {
 	    int confirm = JOptionPane.showConfirmDialog(
 	        view,

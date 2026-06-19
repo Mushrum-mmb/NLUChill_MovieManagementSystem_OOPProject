@@ -146,7 +146,7 @@ public class LoginView extends JPanel {
         card.add(switchBtn);
         add(card);
     }
-//  Logic giao diện đã có hoặc chưa có tài khoản
+// Chuyển đổi giao diện đăng ký và đăng nhập
     private void toggleMode() {
         isLoginMode = !isLoginMode;
         if (isLoginMode) {
@@ -166,7 +166,7 @@ public class LoginView extends JPanel {
         revalidate(); 
         repaint();
     }
-//	logic xử lý phần xác thực
+//	xử lý logic khi người dùng nhấn nút Đăng nhập hoặc Đăng ký
   private void handleAuth() {
         String email    = emailField.getText().trim();
         String password = new String(passwordField.getPassword());
@@ -186,7 +186,7 @@ public class LoginView extends JPanel {
             authListener.onRegister(name, email, password);
         }
   }
-    // logic hiển thị tin nhắn
+    // Hiển thị kết quả thành công/ thất bại
     public void showMessage(String msg, Color color) {
         messageLabel.setText(msg); 
         messageLabel.setForeground(color);

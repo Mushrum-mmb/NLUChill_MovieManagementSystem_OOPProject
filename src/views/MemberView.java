@@ -353,7 +353,6 @@ public class MemberView extends JPanel {
     	if (currentMember == null) return;
         emailDisplayLabel.setText(currentMember.getEmail());
         
-        // Nếu có tên tạm thì hiển thị, không thì hiển thị email
         if (!customName.isEmpty()) {
             nameDisplayLabel.setText(customName);
         } else {
