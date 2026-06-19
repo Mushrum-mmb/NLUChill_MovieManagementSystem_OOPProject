@@ -29,6 +29,7 @@ import javax.swing.Timer;
 import controllers.AdminController;
 import controllers.LoginController;
 import controllers.LoginDTO;
+import controllers.MemberController;
 import controllers.MovieController;
 import controllers.PaymentController;
 import controllers.UserDTO;
@@ -59,10 +60,13 @@ public class MainFrame extends JFrame {
     private LoginView   loginView;
     private MovieView   movieView;
     private PaymentView paymentView;
+    private MemberView memberView;
 //	controllers
     private LoginController   loginController;
     private MovieController   movieController;
     private PaymentController paymentController;
+    private MemberController  memberController; 
+    
 
     private Member       currentMember;
     private boolean      isAdmin = false;
@@ -351,7 +355,7 @@ public class MainFrame extends JFrame {
     // ════════════════════════════════════════════
     //  PROFILE PANEL
     // ════════════════════════════════════════════
-    private MemberView memberView; // giữ tham chiếu để refresh sau thay đổi
+    // giữ tham chiếu để refresh sau thay đổi
 
     private JPanel buildProfilePanel() {
         // Admin: hiển thị card đơn giản (chỉ xem, không chỉnh sửa)
@@ -384,9 +388,9 @@ public class MainFrame extends JFrame {
         }
 
        //cập nhật, đổi mật khẩu, xóa tài khoản
-        MemberView memView = new MemberView();
-        memView.loadMember(currentMember);
-        memView.setUserListener(new MemberView.MemberListener() {
+        memberView = new MemberView(memberController); 
+        memberView.loadMember(currentMember);
+        memberView.setUserListener(new MemberView.MemberListener() {
 
             @Override
             public void onUpdateProfile(Member member, String newName, String newEmail) {
@@ -410,7 +414,7 @@ public class MainFrame extends JFrame {
                 t.setRepeats(false); t.start();
             }
         });
-        return memView;
+        return memberView;
     }
 
     // ── Toast notification ──
