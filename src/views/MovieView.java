@@ -198,7 +198,7 @@ public class MovieView extends JPanel {
                 g2.dispose(); super.paintComponent(g);
             }
         };
-        sendBtn.setFont(Theme.fontBold(12)); sendBtn.setForeground(Color.WHITE);
+        sendBtn.setFont(Theme.fontBold(12)); sendBtn.setForeground(Color.BLACK);
         sendBtn.setContentAreaFilled(false); sendBtn.setBorderPainted(false);
         sendBtn.setPreferredSize(new Dimension(64, 40));
         sendBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -297,7 +297,7 @@ public class MovieView extends JPanel {
         searchField.setFont(Theme.fontPlain(13)); searchField.setForeground(Theme.TEXT_PRIMARY);
         searchField.setCaretColor(Theme.ACCENT); searchField.addActionListener(e->doSearch());
 
-        JButton searchBtn = accentBtn("Tìm", Theme.ACCENT);
+        JButton searchBtn = accentBtn("Tìm", Color.BLACK);
         searchBtn.setPreferredSize(new Dimension(64,40)); searchBtn.addActionListener(e->doSearch());
 
         searchBar.add(new JLabel("  🔍"), BorderLayout.WEST);
@@ -389,7 +389,7 @@ public class MovieView extends JPanel {
         if (movie.getCategory()!=null) tags.add(makeTag(movie.getCategory().getCategory(),Theme.BG_HOVER,Theme.TEXT_SECONDARY));
         if (movie.isVip())             tags.add(makeTag("VIP",new Color(92,67,10),Theme.VIP));
 
-        JButton watchBtn = accentBtn("▶  Xem", Theme.ACCENT);
+        JButton watchBtn = accentBtn("▶  Xem", Color.BLACK);
         watchBtn.setMaximumSize(new Dimension(90,28)); watchBtn.setAlignmentX(LEFT_ALIGNMENT);
         watchBtn.addActionListener(e->{if(movieListener!=null)movieListener.onWatch(movie);});
 

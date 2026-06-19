@@ -8,7 +8,7 @@ public class Member extends User implements Observer{
 	private Date expiredVIP;
 	//	constructor member
 	public Member(int id, String email, String password, String accountStatus, Date expiredVIP) {
-		super(id, email, password);
+		super(id,email, password);
 		AccountStatus = accountStatus;
 		this.expiredVIP = expiredVIP;
 	}

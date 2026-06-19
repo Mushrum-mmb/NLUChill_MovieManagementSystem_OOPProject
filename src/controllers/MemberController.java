@@ -20,7 +20,6 @@ public class MemberController {
 	        view.setProfileMsg("Email không hợp lệ.", Theme.ERROR); 
 	        return;
 	    }
-	
 	    // Cập nhật model
 	    if (!newEmail.isEmpty()) {
 	        currentMember.setEmail(newEmail);

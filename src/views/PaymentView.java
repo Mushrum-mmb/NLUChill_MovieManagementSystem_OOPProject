@@ -257,7 +257,7 @@ public class PaymentView extends JPanel {
                 g2.dispose(); super.paintComponent(g);
             }
         };
-        backBtn.setFont(Theme.fontBold(14)); backBtn.setForeground(Color.WHITE);
+        backBtn.setFont(Theme.fontBold(14)); backBtn.setForeground(Color.BLACK);
         backBtn.setContentAreaFilled(false); backBtn.setBorderPainted(false);
         backBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         backBtn.setMaximumSize(new Dimension(Integer.MAX_VALUE, 48));

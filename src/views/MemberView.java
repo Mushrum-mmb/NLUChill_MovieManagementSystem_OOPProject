@@ -39,6 +39,7 @@ public class MemberView extends JPanel {
 
     private MemberListener userListener;
     private Member       currentMember;
+    private String       customName = "";
 
     // Các trường hiển thị thông tin
     private JLabel   avatarLabel;
@@ -200,12 +201,15 @@ public class MemberView extends JPanel {
         profileMsgLabel.setForeground(Theme.SUCCESS);
         profileMsgLabel.setAlignmentX(LEFT_ALIGNMENT);
 
-        JButton saveBtn = colorBtn("Lưu thay đổi", Theme.ACCENT);
+        JButton saveBtn = colorBtn("Lưu thay đổi", new Color(59, 130, 246));
         saveBtn.setMaximumSize(new Dimension(Integer.MAX_VALUE, 42));
         saveBtn.setAlignmentX(LEFT_ALIGNMENT);
         saveBtn.addActionListener(e -> {
             String newName = nameEditField.getText().trim();
             String newEmail = emailEditField.getText().trim();
+            if (!newName.isEmpty()) {
+                this.customName = newName; // Lưu ngay tại View
+            }
             MemberController.handleUpdateProfile(this, currentMember, newName, newEmail);
         });
 
@@ -346,9 +350,15 @@ public class MemberView extends JPanel {
     
     // ── Cập nhật hiển thị sau thay đổi từ bên ngoài ──
     public void refreshDisplay() {
-        if (currentMember == null) return;
+    	if (currentMember == null) return;
         emailDisplayLabel.setText(currentMember.getEmail());
-        nameDisplayLabel.setText(currentMember.getEmail());
+        
+        // Nếu có tên tạm thì hiển thị, không thì hiển thị email
+        if (!customName.isEmpty()) {
+            nameDisplayLabel.setText(customName);
+        } else {
+            nameDisplayLabel.setText(currentMember.getEmail());
+        }
         String status = currentMember.getAccountStatus();
         statusDisplayLabel.setText(status);
         statusDisplayLabel.setForeground("VIP".equalsIgnoreCase(status) ? Theme.VIP : Theme.ACCENT);

@@ -11,7 +11,7 @@ public class Theme {
     public static final Color BG_INPUT    = new Color(43, 43, 43);
     public static final Color BG_HOVER    = new Color(30, 38, 65);
 
-    public static final Color ACCENT      = new Color(250, 250, 255);
+    public static final Color ACCENT      = new Color(250, 250, 250);
     public static final Color ACCENT_DARK = new Color(244, 244, 244);
     public static final Color ACCENT_GLOW = new Color(255, 255, 255, 60);
 
